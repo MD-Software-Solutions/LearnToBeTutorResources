@@ -30,9 +30,9 @@ export default function MathResourcesPage() {
         if (category === 'tools' && toolRef.current && toolType === 'none') {
             toolRef.current.scrollIntoView({ behavior: 'smooth' });
         } else if (category === 'tools' && toolType === 'desmos') {
-            navigate("/math-resources/tools/ToolPages/desmos");
+            navigate("/LearnToBeTutorResources/math-resources/tools/ToolPages/desmos");
         } else if (category === 'home') {
-            navigate("/math-resources/home");
+            navigate("/LearnToBeTutorResources/math-resources/home");
         } else if (category === 'worksheets') {
             worksheetsRef.current.scrollIntoView({ behavior: 'smooth' });
         } else if (category === 'topics') {
