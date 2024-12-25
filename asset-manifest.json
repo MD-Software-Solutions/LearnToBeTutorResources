@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/LearnToBeTutorResources/static/css/main.803df7e7.css",
+    "main.css": "/LearnToBeTutorResources/static/css/main.872ac6a6.css",
     "main.js": "/LearnToBeTutorResources/static/js/main.f422a310.js",
     "static/js/488.26bf8d22.chunk.js": "/LearnToBeTutorResources/static/js/488.26bf8d22.chunk.js",
     "static/media/InterVariable-Italic.woff2": "/LearnToBeTutorResources/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
@@ -14,12 +14,12 @@
     "static/media/science.jpg": "/LearnToBeTutorResources/static/media/science.ef19834fcaac456db9b5.jpg",
     "static/media/primeicons.woff2": "/LearnToBeTutorResources/static/media/primeicons.024b32cc7bf399b1a847.woff2",
     "index.html": "/LearnToBeTutorResources/index.html",
-    "main.803df7e7.css.map": "/LearnToBeTutorResources/static/css/main.803df7e7.css.map",
+    "main.872ac6a6.css.map": "/LearnToBeTutorResources/static/css/main.872ac6a6.css.map",
     "main.f422a310.js.map": "/LearnToBeTutorResources/static/js/main.f422a310.js.map",
     "488.26bf8d22.chunk.js.map": "/LearnToBeTutorResources/static/js/488.26bf8d22.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.803df7e7.css",
+    "static/css/main.872ac6a6.css",
     "static/js/main.f422a310.js"
   ]
 }
