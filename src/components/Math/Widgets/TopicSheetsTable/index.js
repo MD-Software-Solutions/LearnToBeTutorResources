@@ -33,7 +33,7 @@ export default function TopicSheetTable({ parameter }) {
     useEffect(() => {
         const fetchTopics = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/scrape-topics'); 
+                const response = await axios.get('https://tutor-resource-scraper-ltb.onrender.com/scrape-topics'); 
                 setTopics(response.data);
             } catch (err) {
                 setError(err.message);

@@ -6,17 +6,16 @@ import Layout from './components/Layout';
 import MathResourcesPage from './components/Math';
 import ToolPage from './components/Math/ToolPages';
 
-
-
 function App() {
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />}/>
-          <Route path='/math-resources' element={<MathResourcesPage />}/>
-          <Route path="/math-resources/:category" element={<MathResourcesPage />}/>
-          <Route path='/math-resources/tools/ToolPages/:tool_type' element={<ToolPage />}/>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/LearnToBeTutorResources" element={<HomePage />} />
+          <Route path="/math-resources" element={<MathResourcesPage />} />
+          <Route path="/math-resources/:category" element={<MathResourcesPage />} />
+          <Route path="/math-resources/tools/ToolPages/:tool_type" element={<ToolPage />} />
         </Routes>
       </Layout>
     </Router>

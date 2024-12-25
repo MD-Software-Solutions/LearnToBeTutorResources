@@ -11,7 +11,7 @@ export default function NavBar() {
         {
             label: 'Home',
             icon: 'pi pi-home',
-            command: () => window.location.href = "/"
+            command: () => window.location.href = "/LearnToBeTutorResources"
         },
         {
             label: 'Math',

@@ -35,24 +35,12 @@ export default function WorksheetTable({ webUrl, grade }) {
         }
     };
 
-    // Fetch message from the backend
-    useEffect(() => {
-        const fetchMessage = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/');
-                setMessage(response.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        fetchMessage();
-    }, []);
 
     // Fetch the links from the backend
     useEffect(() => {
         const fetchLinks = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/scrape-links-k5?url=${webUrl}`);
+                const response = await axios.get(`https://tutor-resource-scraper-ltb.onrender.com/scrape-links-k5?url=${webUrl}`);
                 const linksData = response.data.filteredPdfLinks || [];
 
                 // Map links to data structure, including cleaned and capitalized titles and source extraction
