@@ -1,0 +1,33 @@
+$dark-theme: #212328;
+
+.menubar-container-primary {
+    background-color: $dark-theme;
+
+    .card {
+        padding-inline:30px;
+        border-radius: 1em;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    
+        .floating-menubar {
+            border-radius: 1em;
+
+            .p-submenu-list {
+                border-radius: 1em;
+                margin-top: 20px;
+                min-width: fit-content;
+            } 
+
+            .p-submenu {
+                width: fit-content;
+            }
+
+            .p-menubar:hover {
+                display: block;
+            }
+        }
+
+            
+    }
+}
+

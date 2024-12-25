@@ -1,0 +1,77 @@
+.index-wrapper {
+    margin-inline: 30px;
+    font-family: var(--font-family);
+}
+
+.content-wrapper {
+    margin-inline: 10px;
+}
+
+.general-description-txt {
+    font-size: large;
+    text-align: justify;
+    line-height: 25px;
+    padding-bottom: 10px;
+}
+
+/* Base styles for flex-row and flex-column */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px; /* Add some space between the items */
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 870px) {
+    .flex-row {
+        flex-direction: column;  /* Stacks columns into a single column layout */
+        justify-content: center; /* Optionally center the content */
+        gap: 20px; /* Add gap between stacked items */
+    }
+    .flex-column {
+        flex-direction: row; /* Maintain row direction in the column section */
+    }
+}
+
+/* Styling for card containers to adapt to smaller screens */
+.three-card-columns {
+    flex: 1 1 30%; /* Adjusts the card width to 30% on larger screens */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Adjustments for smaller screens */
+    @media (max-width: 870px) {
+        flex: 1 1 100%; /* Cards should take up 100% of width on small screens */
+    }
+}
+
+.cards {
+    border-radius: 1em;
+}
+
+.three-card-columns:nth-child(1) {
+    margin-inline-end: 10px;
+}
+
+.three-card-columns:nth-child(2) {
+    margin-inline: 10px;
+}
+.three-card-columns:nth-child(3) {
+    margin-inline-start: 10px;
+}
+
+
+.card-img {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.space {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

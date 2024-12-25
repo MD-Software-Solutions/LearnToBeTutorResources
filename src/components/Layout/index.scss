@@ -1,0 +1,19 @@
+$dark-theme: #212328;
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+  
+  /* The content section should take all available space */
+  .content {
+    flex-grow: 1;
+    background-color: $dark-theme;
+  }
+  
+  /* Optional: Footer should stick to the bottom */
+  footer {
+    margin-top: auto;  /* Pushes the footer to the bottom if content is less */
+  }
+  

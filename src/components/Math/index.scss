@@ -1,0 +1,77 @@
+.index-wrapper {
+    margin-inline: 30px;
+    font-family: var(--font-family);
+}
+
+.content-wrapper {
+    margin-inline: 10px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
+.space-lr {
+    padding-inline: 10px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 870px) {
+    .flex-row {
+        flex-direction: column;  /* Stacks columns into a single column layout */
+        justify-content: center; /* Optionally center the content */
+        gap: 20px; /* Add gap between stacked items */
+    }
+    .flex-column {
+        flex-direction: row; /* Maintain row direction in the column section */
+    }
+}
+
+.cards {
+    border-bottom: 1em;
+}
+
+.space-t {
+    padding-top: 20px;
+}
+
+.space-b {
+    padding-bottom: 20px;
+}
+
+.p-badge {
+    font-size: 15px;
+}
+
+
+.p-tabview {
+    padding: 0;
+
+    .tab-header {
+        padding-inline: 0px;
+    
+        &:nth-child(1) {
+            padding-inline-start: 0px;
+        }
+    
+    }
+
+    .p-tabview-nav {
+
+        li a {
+            background-color: transparent !important;
+        }
+
+    }
+
+    .p-tabview-panels {
+        background-color: transparent;
+    }
+}

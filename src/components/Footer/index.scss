@@ -1,0 +1,23 @@
+$dark-theme: #212328;
+
+.Footer-wrapper {
+    padding-top: 150px;
+}
+
+.bg-dark {
+    background-color: $dark-theme;
+}
+  
+.border-radius-0 {
+    border-radius: 0;
+}
+
+.footer-card {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    background-color: #374151;
+}
+  
+.card-text {
+    margin-left: 10px;
+}
