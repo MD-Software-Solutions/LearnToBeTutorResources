@@ -36,7 +36,7 @@ function HomePage() {
     const math_footer = (
         <>
             <Button label='-->' onClick={() => {
-                window.location.href = '/math-resources/home'
+                window.location.href = '/LearnToBeTutorResources/math-resources/home'
             }}/>
         </>
     )
