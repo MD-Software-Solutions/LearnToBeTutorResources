@@ -1,0 +1,1 @@
+This web tool utilizes GPT-2, an open source AI model from OpenAI. It can help generate  tailored explanations, summaries, and practice problems. It makes complex subjects easier to grasp and helps tutors deliver personalized lessons faster.

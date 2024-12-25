@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/MD-Software-Solutions/LearnToBeTutorResources/static/css/main.164cee17.css",
+    "main.js": "/MD-Software-Solutions/LearnToBeTutorResources/static/js/main.891dbae8.js",
+    "static/js/488.26bf8d22.chunk.js": "/MD-Software-Solutions/LearnToBeTutorResources/static/js/488.26bf8d22.chunk.js",
+    "static/media/InterVariable-Italic.woff2": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/InterVariable-Italic.e295f70fe3e2df296c7b.woff2",
+    "static/media/InterVariable.woff2": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/InterVariable.a0e477f2f1f9d2376fde.woff2",
+    "static/media/primeicons.svg": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/primeicons.6ed59f962963a4a73af2.svg",
+    "static/media/reading.png": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/reading.25eeb9e4a784f1eb7e3d.png",
+    "static/media/math-symbols.jpg": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/math-symbols.278e8e4e8c67dcee5b55.jpg",
+    "static/media/primeicons.eot": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/primeicons.ff0c4cd79b2ffca2de54.eot",
+    "static/media/primeicons.woff": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/primeicons.8931fda1930c3bd21e96.woff",
+    "static/media/primeicons.ttf": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/primeicons.a5c2a53d1ff7a9ff5933.ttf",
+    "static/media/science.jpg": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/science.ef19834fcaac456db9b5.jpg",
+    "static/media/primeicons.woff2": "/MD-Software-Solutions/LearnToBeTutorResources/static/media/primeicons.024b32cc7bf399b1a847.woff2",
+    "index.html": "/MD-Software-Solutions/LearnToBeTutorResources/index.html",
+    "main.164cee17.css.map": "/MD-Software-Solutions/LearnToBeTutorResources/static/css/main.164cee17.css.map",
+    "main.891dbae8.js.map": "/MD-Software-Solutions/LearnToBeTutorResources/static/js/main.891dbae8.js.map",
+    "488.26bf8d22.chunk.js.map": "/MD-Software-Solutions/LearnToBeTutorResources/static/js/488.26bf8d22.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.164cee17.css",
+    "static/js/main.891dbae8.js"
+  ]
+}
