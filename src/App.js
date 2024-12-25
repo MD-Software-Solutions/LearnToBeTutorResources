@@ -13,9 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/LearnToBeTutorResources" element={<HomePage />} />
-          <Route path="/math-resources" element={<MathResourcesPage />} />
-          <Route path="/math-resources/:category" element={<MathResourcesPage />} />
-          <Route path="/math-resources/tools/ToolPages/:tool_type" element={<ToolPage />} />
+          <Route path="/LearnToBeTutorResources/math-resources" element={<MathResourcesPage />} />
+          <Route path="/LearnToBeTutorResources/math-resources/:category" element={<MathResourcesPage />} />
+          <Route path="/LearnToBeTutorResources/math-resources/tools/ToolPages/:tool_type" element={<ToolPage />} />
         </Routes>
       </Layout>
     </Router>
