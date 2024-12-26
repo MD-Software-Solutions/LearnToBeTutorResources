@@ -48,7 +48,7 @@ export default function MathResourcesPage() {
                 icon="pi pi-window-maximize"
                 label="Open"
                 onClick={() => {
-                    window.location.href = '/math-resources/tools/ToolPages/desmos';
+                    window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/desmos';
                 }}
             />
         </>
@@ -107,14 +107,14 @@ export default function MathResourcesPage() {
                             </Card>
                         </div>
                         <div className="flex-column">
-                            <Card className="cards" title="Excalidraw Whiteboard Tool" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool'}} />} >
+                            <Card className="cards" title="Excalidraw Whiteboard Tool" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool'}} />} >
                                 <p className="">
                                     Use Excalidraw Whiteboard to draw visuals for your students!
                                 </p>
                             </Card>
                         </div>
                         <div className="flex-column">
-                            <Card className="cards" title="GeoGebra Graphing Calculator" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/math-resources/tools/ToolPages/Geogebra-grapher'}} />} >
+                            <Card className="cards" title="GeoGebra Graphing Calculator" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/Geogebra-grapher'}} />} >
                                 <p>
                                     This is an excellent tool for graphing functions and solving equations. It can be used in place of desmos.
                                 </p>

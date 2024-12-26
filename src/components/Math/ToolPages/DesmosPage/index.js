@@ -8,13 +8,13 @@ import { Panel } from 'primereact/panel';
 export default function DesmosPage() {
     const navigate = useNavigate();
     const items = [
-        { label: 'Math Resources', command: () => navigate("/math-resources/home") },
-        { label: 'Tools', command: () => navigate("/math-resources/tools?tool_type=none") },
+        { label: 'Math Resources', command: () => navigate("/LearnToBeTutorResources/math-resources/home") },
+        { label: 'Tools', command: () => navigate("/LearnToBeTutorResources/math-resources/tools?tool_type=none") },
         {
             label: 'Desmos',
         }
     ];
-    const home = { icon: 'pi pi-home', url: '/' };
+    const home = { icon: 'pi pi-home', url: '/LearnToBeTutorResources' };
     const header = (
         <>
             <BreadCrumb model={items} home={home} />

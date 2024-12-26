@@ -1,17 +1,16 @@
 import React from 'react'; 
 import { Menubar } from 'primereact/menubar';
 import './index.scss';
-import { Link } from 'react-router-dom';
-
-
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export default function NavBar() {
+    const navigate = useNavigate(); // Use navigate hook
 
     const items = [
         {
             label: 'Home',
             icon: 'pi pi-home',
-            command: () => window.location.href = "/LearnToBeTutorResources"
+            url: '/LearnToBeTutorResources',
         },
         {
             label: 'Math',
@@ -20,44 +19,43 @@ export default function NavBar() {
                 {
                     label: 'Home',
                     icon: 'pi pi-home',
-                    command: () => window.location.href = "/LearnToBeTutorResources/math-resources/home"
+                    command: () => navigate("/LearnToBeTutorResources/math-resources/home") // Navigate to the math resources home
                 },
                 {
                     label: 'Tools',
                     icon: 'pi pi-wrench',
-                    command: () => window.location.href = "/LearnToBeTutorResources/math-resources/tools?tool_type=none",
                     items: [
                         {
                             label: 'Desmos Graphing',
                             icon: 'pi pi-chart-bar',
-                            command: () => window.location.href = "/LearnToBeTutorResources/math-resources/tools?tool_type=desmos"
+                            command: () => navigate("/LearnToBeTutorResources/math-resources/tools?tool_type=desmos") // Navigate to Desmos Graphing tool
                         },
                         {
                             label: 'Excalidraw Whiteboard',
                             icon: 'pi pi-pencil',
-                            command: () => window.location.href = "/LearnToBeTutorResources/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool"
+                            command: () => navigate("/LearnToBeTutorResources/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool") // Navigate to Excalidraw Whiteboard tool
                         },
                         {
                             label: 'GeoGebra Graphing',
                             icon: 'pi pi-chart-scatter',
-                            command: () => window.location.href = "/LearnToBeTutorResources/math-resources/tools/ToolPages/Geogebra-grapher"
+                            command: () => navigate("/LearnToBeTutorResources/math-resources/tools/ToolPages/Geogebra-grapher") // Navigate to GeoGebra Graphing tool
                         },
                     ]
                 },
                 {
                     label: 'Worksheets',
                     icon: 'pi pi-file-edit',
-                    command: () => window.location.href = "/LearnToBeTutorResources/math-resources/worksheets"
+                    command: () => navigate("/LearnToBeTutorResources/math-resources/worksheets") // Navigate to worksheets page
                 },
                 {
                     label: 'Worksheets by topic',
                     icon: 'pi pi-list',
-                    command: () => window.location.href = "/LearnToBeTutorResources/math-resources/topics"
+                    command: () => navigate("/LearnToBeTutorResources/math-resources/topics") // Navigate to worksheets by topic
                 },
                 {
-                    label: 'Quizzes/Assesments',
+                    label: 'Quizzes/Assessments',
                     icon: 'pi pi-check-circle',
-                    command: () => window.location.href = "/LearnToBeTutorResources/math-resources/quiz"
+                    command: () => navigate("/LearnToBeTutorResources/math-resources/quiz") // Navigate to quizzes and assessments
                 },
             ]
         },
@@ -65,26 +63,39 @@ export default function NavBar() {
         {
             label: 'Reading',
             icon: 'pi pi-book',
-            command: () => window.location.href = "/ai"
+            command: () => navigate("/ai") // Navigate to reading section (update the path as per requirement)
         },
         
         {
             label: 'Science',
             icon: 'pi pi-globe',
-            command: () => window.location.href = "/ai"
+            command: () => navigate("/ai") // Navigate to science section (update the path as per requirement)
         },
         {
             label: 'About',
             icon: 'pi pi-info-circle',
-            command: () => window.location.href = "/about-page"
+            command: () => navigate("/about-page") // Navigate to the about page
         }
     ];
 
     return (
         <div className='menubar-container-primary'>
             <div className="card">
-                <Menubar model={items} className="floating-menubar"/>
+                <Menubar 
+                    model={items.map(item => ({
+                        ...item,
+                        command: (e) => {
+                            // For dropdown items, we return early without navigation
+                            if (item.items) {
+                                return;
+                            }
+                            // Use navigate to update the route
+                            navigate(item.command); 
+                        }
+                    }))} 
+                    className="floating-menubar"
+                />
             </div>
         </div>
-    )
+    );
 }
