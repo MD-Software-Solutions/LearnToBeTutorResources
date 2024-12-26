@@ -20,7 +20,7 @@ function HomePage() {
     const math_footer = (
         <>
             <Button label='-->' onClick={() => {
-                window.location.href = '/LearnToBeTutorResources/math-resources/home'
+                navigate("/LearnToBeTutorResources/math-resources/home");
             }}/>
         </>
     )
