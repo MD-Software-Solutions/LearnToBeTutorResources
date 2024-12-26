@@ -48,7 +48,7 @@ export default function MathResourcesPage() {
                 icon="pi pi-window-maximize"
                 label="Open"
                 onClick={() => {
-                    window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/desmos';
+                    navigate("/LearnToBeTutorResources/math-resources/tools?tool_type=desmos")
                 }}
             />
         </>
