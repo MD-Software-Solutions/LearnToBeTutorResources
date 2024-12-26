@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -7,123 +7,149 @@ import { Toolbar } from 'primereact/toolbar';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import { Skeleton } from 'primereact/skeleton';
+import { Toast } from 'primereact/toast';
 import './index.scss';
 
 export default function WorksheetTable({ webUrl, grade }) {
-    const [message, setMessage] = useState('');
     const [data, setData] = useState([]);
-    const [links, setLinks] = useState([]);
-    const [loading, setLoading] = useState(true); 
-    const [search, setSearch] = useState(''); 
+    const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState('');
     const [dialogVisible, setDialogVisible] = useState(false);
     const [iframeSrc, setIframeSrc] = useState('');
+    const toast = useRef(null);
+    const success_toast = useRef(null);
+    const hasRunOnce = useRef(false);
 
-    
+    const showSuccess = () => {
+        success_toast.current.show({ severity: 'success', summary: 'Content Successfully Loaded', detail: 'Hundreds of sheets at your disposal...', life: 5000, });
+    };
+
+
+    const showSticky = () => {
+        toast.current.show({ severity: 'info', summary: 'Hang on a couple minutes...', detail: 'Loading hundreds of sheets!', sticky: true });
+        hasRunOnce.current = true;
+    };
+
+    const clear = () => {
+        toast.current.clear();
+        hasRunOnce.current = false;
+    };
+
+    // Helper function to capitalize words
     const capitalizeWords = (str) =>
         str
             .split('-')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) 
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
             .join(' ');
 
-    // Helper function to extract the source from the URL
+    // Extract the source from a URL
     const extractSource = (url) => {
         try {
-            const hostname = new URL(url).hostname; // Get the hostname
-            return hostname.replace('www.', ''); // Remove 'www.' for cleaner display
+            const hostname = new URL(url).hostname;
+            return hostname.replace('www.', '');
         } catch (error) {
-            return 'Unknown Source'; // Fallback if URL parsing fails
+            return 'Unknown Source';
         }
     };
 
 
-    // Fetch the links from the backend
+    useEffect(() => {
+        if (loading && !hasRunOnce.current) {
+            showSticky();
+        } else if (!loading) {
+            clear();
+            showSuccess();
+        }
+    }, [loading]);
+
+    // Fetch links
     useEffect(() => {
         const fetchLinks = async () => {
             try {
                 const response = await axios.get(`https://tutor-resource-scraper-ltb.onrender.com/scrape-links-k5?url=${webUrl}`);
                 const linksData = response.data.filteredPdfLinks || [];
 
-                // Map links to data structure, including cleaned and capitalized titles and source extraction
+                // Map links to data structure
                 const tableData = linksData.map((link) => {
                     const rawTitle = link.split('/').pop().replace('.pdf', '');
-                    const cleanedTitle = capitalizeWords(rawTitle.replace(`grade-${grade}-`, '')); // Clean and capitalize title
-                    const source = extractSource(link); // Extract source from the link
+                    const cleanedTitle = capitalizeWords(rawTitle.replace(`grade-${grade}-`, ''));
+                    const source = extractSource(link);
                     return {
-                        rawTitle: rawTitle, // Keep raw title for searching
+                        rawTitle: rawTitle,
                         title: cleanedTitle,
                         source: source,
                         link: link,
                     };
                 });
 
-                setLinks(linksData);
                 setData(tableData);
             } catch (error) {
                 console.error('Error fetching links:', error);
             } finally {
-                setLoading(false); // Stop loading after the request completes
+                setLoading(false);
             }
         };
 
         fetchLinks();
-    }, []);
+    }, [webUrl, grade]);
 
     // Pagination state
     const [first, setFirst] = useState(0);
-    const [rows, setRows] = useState(10); // Set the number of rows per page to 10
+    const [rows, setRows] = useState(10);
 
     const onPageChange = (event) => {
-        setFirst(event.first);  // First record for the page
-        setRows(event.rows);    // Number of rows per page
+        setFirst(event.first);
+        setRows(event.rows);
     };
 
-    // Filtered data based on the search query
-    const filteredData = data.filter(row =>
+    // Filtered data based on search query
+    const filteredData = data.filter((row) =>
         row.rawTitle.toLowerCase().includes(search.toLowerCase())
     );
 
-    // Link template for DataTable
-    const linkTemplate = (rowData) => {
-        return rowData.link ? (
+    // Link template
+    const linkTemplate = (rowData) =>
+        rowData.link ? (
             <a href={rowData.link} target="_blank" rel="noopener noreferrer">
                 {rowData.link}
             </a>
         ) : (
-            'Wait a minute...'
+            <Skeleton width="100%" height="1.5rem" />
         );
-    };
 
-    // Title template for DataTable
-    const titleTemplate = (rowData) => {
-        return rowData.title || 'Wait a minute...';
-    };
+    // Title template
+    const titleTemplate = (rowData) =>
+        rowData.title || <Skeleton width="100%" height="1.5rem" />;
 
-    // Source template for DataTable
-    const sourceTemplate = (rowData) => {
-        return rowData.source || 'Wait a minute...';
-    };
+    // Source template
+    const sourceTemplate = (rowData) =>
+        rowData.source || <Skeleton width="100%" height="1.5rem" />;
 
     // Open button template
-    const openTemplate = (rowData) => {
-        return (
-            <Button
-                icon="pi pi-window-maximize"
-                label='Open in page'
-                onClick={() => {
-                    setIframeSrc(rowData.link);
-                    setDialogVisible(true);
-                }}
-            />
-        );
-    };
+    const openTemplate = (rowData) => (
+        <Button
+            icon="pi pi-window-maximize"
+            label="Open in page"
+            onClick={() => {
+                setIframeSrc(rowData.link);
+                setDialogVisible(true);
+            }}
+        />
+    );
 
-    // Calculate the data slice based on pagination
+    // Skeleton template
+    const skeletonTemplate = () => <Skeleton width="100%" height="1.5rem" />;
+
+    // Paginated data
     const paginatedData = filteredData.slice(first, first + rows);
 
     return (
         <div>
+            <Toast ref={toast} />
+            <Toast ref={success_toast}/>
             <h3>All the math worksheets you could want:</h3>
-            <div className='space-t space-b'>
+            <div className="space-t space-b">
                 <Toolbar
                     start={
                         <div>
@@ -141,17 +167,40 @@ export default function WorksheetTable({ webUrl, grade }) {
                     }
                 />
             </div>
-            <div className='datatable-style'>
+            <div className="datatable-style">
                 <DataTable
-                    value={loading ? Array(rows).fill({}) : paginatedData}  // Show placeholder rows when loading
-                    first={first}
+                    value={loading ? Array(rows).fill({}) : paginatedData}
+                    scrollable
+                    scrollHeight="flex"
+                    frozenWidth="150px"
                     rows={rows}
+                    first={first}
                     onPage={onPageChange}
                 >
-                    <Column field="title" header="Title" body={titleTemplate}></Column>
-                    <Column field="source" header="Source" body={sourceTemplate}></Column>
-                    <Column header="Link" body={linkTemplate}></Column>
-                    <Column header="Open" body={openTemplate}></Column>
+                    {/* Non-frozen columns */}
+                    <Column
+                        field="title"
+                        header="Title"
+                        body={loading ? skeletonTemplate : titleTemplate}
+                    />
+                    <Column
+                        field="source"
+                        header="Source"
+                        body={loading ? skeletonTemplate : sourceTemplate}
+                    />
+                    <Column
+                        header="Link"
+                        body={loading ? skeletonTemplate : linkTemplate}
+                    />
+
+                    {/* Frozen "Open" column */}
+                    <Column
+                        header="Open"
+                        body={openTemplate}
+                        frozen
+                        alignFrozen="right"
+                        style={{ minWidth: 'fit-content' }}
+                    />
                 </DataTable>
             </div>
 
@@ -161,7 +210,7 @@ export default function WorksheetTable({ webUrl, grade }) {
                 totalRecords={filteredData.length}
                 onPageChange={onPageChange}
                 rowsPerPageOptions={[10, 20, 30]}
-                className='datatable_paginator'
+                className="datatable_paginator"
             />
 
             <Dialog

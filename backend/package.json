@@ -1,11 +1,12 @@
 {
   "name": "backend",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",   
-    "start-dev": "nodemon server.js"  
+    "start": "node server.mjs",
+    "start-dev": "nodemon server.mjs"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,9 @@
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "p-limit": "^6.2.0",
+    "url": "^0.11.4"
   },
   "devDependencies": {
     "kill-port": "^2.0.1",
