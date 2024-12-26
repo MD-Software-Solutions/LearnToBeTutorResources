@@ -1,7 +1,7 @@
 {
   "name": "tutoring-web-service-app",
   "version": "0.1.0",
-  "homepage": "https://MD-Software-Solutions.github.io/LearnToBeTutorResources",
+  "homepage": "https://md-software-solutions.github.io/LearnToBeTutorResources",
   "private": true,
   "dependencies": {
     "axios": "^1.7.9",

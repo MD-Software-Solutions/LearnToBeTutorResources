@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/LearnToBeTutorResources" element={<HomePage />} />
           <Route path="/LearnToBeTutorResources/math-resources" element={<MathResourcesPage />} />
+          <Route path="/LearnToBeTutorResources/math-resources/home" element={<MathResourcesPage />} />
           <Route path="/LearnToBeTutorResources/math-resources/:category" element={<MathResourcesPage />} />
           <Route path="/LearnToBeTutorResources/math-resources/tools/ToolPages/:tool_type" element={<ToolPage />} />
         </Routes>
