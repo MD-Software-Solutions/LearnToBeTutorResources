@@ -107,14 +107,14 @@ export default function MathResourcesPage() {
                             </Card>
                         </div>
                         <div className="flex-column">
-                            <Card className="cards" title="Excalidraw Whiteboard Tool" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool'}} />} >
+                            <Card className="cards" title="Excalidraw Whiteboard Tool" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {navigate("/LearnToBeTutorResources/math-resources/tools/ToolPages/Excalidraw-Whiteboard-Tool")}} />} >
                                 <p className="">
                                     Use Excalidraw Whiteboard to draw visuals for your students!
                                 </p>
                             </Card>
                         </div>
                         <div className="flex-column">
-                            <Card className="cards" title="GeoGebra Graphing Calculator" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {window.location.href = '/LearnToBeTutorResources/math-resources/tools/ToolPages/Geogebra-grapher'}} />} >
+                            <Card className="cards" title="GeoGebra Graphing Calculator" footer={<Button icon='pi pi-window-maximize' label="Open" onClick={() => {navigate("/LearnToBeTutorResources/math-resources/tools/ToolPages/Geogebra-grapher")}} />} >
                                 <p>
                                     This is an excellent tool for graphing functions and solving equations. It can be used in place of desmos.
                                 </p>
@@ -174,9 +174,9 @@ export default function MathResourcesPage() {
                             </Card>
                         </div>
                         <div className="flex-column">
-                            <Card className="cards" title="Mathopolis Math Quizzes" footer={footer_btn('https://www.worksheetfun.com/math/', "Mathopolis Math Quizzes")}>
+                            <Card className="cards" title="Worksheet Fun" footer={footer_btn('https://www.worksheetfun.com/math/', "Worksheet Fun")}>
                                 <p className="">
-                                    Choose more quizzes based of certain topics on Mathopolis
+                                    Choose a variety of math worksheets on this website
                                 </p>
                             </Card>
                         </div>
