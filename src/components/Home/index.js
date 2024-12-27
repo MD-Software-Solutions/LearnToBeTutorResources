@@ -5,6 +5,7 @@ import { Button } from 'primereact/button';
 import MathImg from '../../assets/math-symbols.jpg';
 import ReadingImg from '../../assets/reading.png';
 import ScienceImg from '../../assets/science.jpg';
+import { Message } from 'primereact/message';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
@@ -27,17 +28,13 @@ function HomePage() {
 
     const reading_footer = (
         <>
-            <Button label='-->' onClick={() => {
-                navigate('/ai');
-            }}/>
+            <Message text="Coming Soon!" />
         </>
     )
 
     const science_footer = (
         <>
-            <Button label='-->' onClick={() => {
-                navigate('/ai');
-            }}/>
+            <Message text="Coming Soon" />
         </>
     )
 

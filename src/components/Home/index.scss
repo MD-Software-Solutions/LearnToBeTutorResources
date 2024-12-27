@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 10px; /* Add some space between the items */
+    gap: 10px; /* Add space between the items */
 }
 
 .flex-column {
@@ -27,44 +27,16 @@
     flex-direction: column;
 }
 
-@media (max-width: 870px) {
-    .flex-row {
-        flex-direction: column;  /* Stacks columns into a single column layout */
-        justify-content: center; /* Optionally center the content */
-        gap: 20px; /* Add gap between stacked items */
-    }
-    .flex-column {
-        flex-direction: row; /* Maintain row direction in the column section */
-    }
-}
-
-/* Styling for card containers to adapt to smaller screens */
 .three-card-columns {
     flex: 1 1 30%; /* Adjusts the card width to 30% on larger screens */
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* Adjustments for smaller screens */
-    @media (max-width: 870px) {
-        flex: 1 1 100%; /* Cards should take up 100% of width on small screens */
-    }
 }
 
 .cards {
     border-radius: 1em;
 }
-
-.three-card-columns:nth-child(1) {
-    margin-inline-end: 10px;
-}
-
-.three-card-columns:nth-child(2) {
-    margin-inline: 10px;
-}
-.three-card-columns:nth-child(3) {
-    margin-inline-start: 10px;
-}
-
 
 .card-img {
     border-top-left-radius: 1em;
@@ -76,4 +48,43 @@
 .space {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+/* Adjustments for screens below 870px */
+@media (max-width: 870px) {
+    /* Remove margins for the wrapper and content */
+    .index-wrapper,
+    .content-wrapper {
+        margin-inline: 0;
+    }
+
+    /* Stack cards vertically with no gaps or margins */
+    .flex-row {
+        flex-direction: column; /* Stacks items into a single column layout */
+        gap: 0; /* No gaps between cards */
+    }
+
+    /* Ensure full-width cards */
+    .three-card-columns {
+        margin: 0; /* Remove margins */
+        gap: 0; /* No gaps */
+        width: 100%;
+    }
+
+    .cards {
+        margin: 0; /* Remove any card-specific margins */
+        border-radius: 0; /* Optional: Remove border-radius for a flush layout */
+    }
+
+    /* Remove extra padding or margins for the description text */
+    .general-description-txt {
+        margin: 0;
+        padding: 0;
+        text-align: justify;
+    }
+
+    /* Adjust space for the header */
+    .space {
+        padding: 10px 0; /* Reduce padding */
+    }
 }
