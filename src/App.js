@@ -19,7 +19,7 @@ function App() {
           <Route path="/LearnToBeTutorResources/math-resources/tools/ToolPages/:tool_type" element={<ToolPage />} />
           <Route path="/LearnToBeTutorResources/reading-resources" element={<ComingSoonPage />} />
           <Route path="/LearnToBeTutorResources/science-resources" element={<ComingSoonPage />} />
-          <Route path="/about-page" element={<ComingSoonPage />} />
+          <Route path="/LearnToBeTutorResources/about-page" element={<ComingSoonPage />} />
         </Routes>
       </Layout>
     </Router>

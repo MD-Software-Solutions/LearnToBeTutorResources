@@ -74,7 +74,7 @@ export default function NavBar() {
         {
             label: 'About',
             icon: 'pi pi-info-circle',
-            command: () => navigate("/about-page") // Navigate to the about page
+            command: () => navigate("/LearnToBeTutorResources/about-page") // Navigate to the about page
         }
     ];
 
