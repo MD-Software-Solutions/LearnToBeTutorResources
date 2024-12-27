@@ -19,7 +19,7 @@ export default function NavBar() {
                 {
                     label: 'Home',
                     icon: 'pi pi-home',
-                    command: () => navigate("/LearnToBeTutorResources/math-resources/home") // Navigate to the math resources home
+                    command: () => navigate("/LearnToBeTutorResources/math-resources/home") 
                 },
                 {
                     label: 'Tools',
@@ -63,13 +63,13 @@ export default function NavBar() {
         {
             label: 'Reading',
             icon: 'pi pi-book',
-            command: () => navigate("/ai") // Navigate to reading section (update the path as per requirement)
+            command: () => navigate("/LearnToBeTutorResources/reading-resources")
         },
         
         {
             label: 'Science',
             icon: 'pi pi-globe',
-            command: () => navigate("/ai") // Navigate to science section (update the path as per requirement)
+            command: () => navigate("/LearnToBeTutorResources/science-resources")
         },
         {
             label: 'About',
@@ -85,12 +85,14 @@ export default function NavBar() {
                     model={items.map(item => ({
                         ...item,
                         command: (e) => {
-                            // For dropdown items, we return early without navigation
-                            if (item.items) {
-                                return;
+                            console.log("Navigating item: ", item); // Check what’s being navigated to
+                            if (item.url) {
+                                navigate(item.url);
+                            } else if (item.items) {
+                                return; 
+                            } else if (item.command) {
+                                item.command();
                             }
-                            // Use navigate to update the route
-                            navigate(item.command); 
                         }
                     }))} 
                     className="floating-menubar"
